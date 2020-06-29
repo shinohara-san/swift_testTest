@@ -7,28 +7,41 @@
 //
 
 import XCTest
-@testable import TestPractice
+@testable import TestPractice //ないとsquare()やMathStuffにアクセスできない
 
 class TestPracticeTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func testSquare(){
+        let num = 3
+        let result = num.square()
+        XCTAssertEqual(result, 9)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testAdd(){
+        let math = MathStuff()
+        let result = math.addInt(x: 1, y: 2)
+        XCTAssertEqual(result, 3)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testMultiply(){
+        let math = MathStuff()
+        let result = math.multiplyInt(x: 1, y: 2)
+//        XCTAssertEqual(result, 3)
+        XCTAssertEqual(result, 2)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testDivide(){
+        let math = MathStuff()
+        let result = math.divideInt(x: 2, y: 2)
+        XCTAssertEqual(result, 1)
     }
-
+    
+    func testHelloWorld(){
+        var hw:String?
+        XCTAssertNil(hw)
+        
+        hw = "Hello world"
+//        XCTAssertEqual(hw, "Hello world1")
+        XCTAssertEqual(hw, "Hello world")
+    }
 }
